@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/JsonWcfService.dll">
+      <publishTime>09/26/2013 17:02:01</publishTime>
+    </File>
+    <File Include="GetDealershipKPI.svc">
+      <publishTime>09/24/2013 16:57:19</publishTime>
+    </File>
+    <File Include="GetDealerships.svc">
+      <publishTime>09/18/2013 17:34:09</publishTime>
+    </File>
+    <File Include="GetKPI.svc">
+      <publishTime>09/26/2013 16:47:09</publishTime>
+    </File>
+    <File Include="Service1.svc">
+      <publishTime>09/18/2013 18:09:10</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/30/2013 16:54:14</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
