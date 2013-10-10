@@ -7,6 +7,19 @@ using System.Web;
 namespace JsonWcfService
 {
     [DataContract]
+    public class KPIValues
+    {
+        [DataMember]
+        public double DealerValue { get; set; }
+        [DataMember]
+        public double RegionValue { get; set; }
+        [DataMember]
+        public double NationValue { get; set; }
+        [DataMember]
+        public DateTime Date { get; set; }
+    }
+
+    [DataContract]
     public class Dealership
     {
         [DataMember]
@@ -26,23 +39,23 @@ namespace JsonWcfService
         }
     }
 
-    [DataContract]
-    public class KPI
-    {
-        [DataMember]
-        public int KPIID { get; set; }
-        [DataMember]
-        public string Description { get; set; }
-        [DataMember]
-        public string Name { get; set; }
+    //[DataContract]
+    //public class KPI
+    //{
+    //    [DataMember]
+    //    public int KPIID { get; set; }
+    //    [DataMember]
+    //    public string Description { get; set; }
+    //    [DataMember]
+    //    public string Name { get; set; }
 
-        public KPI(int KID, string Desc, string Nam)
-        {
-            KPIID = KID;
-            Description = Desc;
-            Name = Nam;
-        }
-    }
+    //    public KPI(int KID, string Desc, string Nam)
+    //    {
+    //        KPIID = KID;
+    //        Description = Desc;
+    //        Name = Nam;
+    //    }
+    //}
 
     [DataContract]
     public class DealershipKPI

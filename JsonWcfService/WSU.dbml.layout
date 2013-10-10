@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="WSU">
+  <DataContextMoniker Name="/WSUDataContext" />
+  <nestedChildShapes>
+    <classShape Id="076f8c28-1c97-4d27-a193-da8aef2ca6fd" absoluteBounds="3.5, 5.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/WSUDataContext/Dealer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e41b8d10-cf9f-4a5c-beb5-f21552887cc8" absoluteBounds="3.515, 5.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e2979f5b-e682-4dba-ab8a-6048c20ea86b" absoluteBounds="3.5, 1.625, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/WSUDataContext/KPI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ed91ec05-4fe2-471e-bb5a-d65d98d83312" absoluteBounds="3.515, 2.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cd12d897-fe93-49b6-8755-e5b18efa64b9" absoluteBounds="6.25, 1.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/WSUDataContext/DealerKPIValue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2539bd20-bfa8-4915-9f1d-c8e0da488b5f" absoluteBounds="6.2650000000000006, 1.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 6.28929768880208); (7.25 : 6.28929768880208); (7.25 : 3.28049967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/WSUDataContext/Dealer/Dealer_DealerKPIValue" />
+      <nodes>
+        <classShapeMoniker Id="076f8c28-1c97-4d27-a193-da8aef2ca6fd" />
+        <classShapeMoniker Id="cd12d897-fe93-49b6-8755-e5b18efa64b9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.31814697265625); (6.25 : 2.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/WSUDataContext/KPI/KPI_DealerKPIValue" />
+      <nodes>
+        <classShapeMoniker Id="e2979f5b-e682-4dba-ab8a-6048c20ea86b" />
+        <classShapeMoniker Id="cd12d897-fe93-49b6-8755-e5b18efa64b9" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

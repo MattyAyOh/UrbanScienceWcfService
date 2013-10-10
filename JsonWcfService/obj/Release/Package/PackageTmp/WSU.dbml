@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WSU" Class="WSUDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=urbanscience;Initial Catalog=WSU;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WSUConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Dealer" Member="Dealers">
+    <Type Name="Dealer">
+      <Column Name="DealerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Lat" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Long" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="AreaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Dealer_DealerKPIValue" Member="DealerKPIValues" ThisKey="DealerID" OtherKey="DealerID" Type="DealerKPIValue" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KPI" Member="KPIs">
+    <Type Name="KPI">
+      <Column Name="KPIID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="KPI_DealerKPIValue" Member="DealerKPIValues" ThisKey="KPIID" OtherKey="KPIID" Type="DealerKPIValue" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DealerKPIValue" Member="DealerKPIValues">
+    <Type Name="DealerKPIValue">
+      <Column Name="DealerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Month" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="KPIID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MonthAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="YtdAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Dealer_DealerKPIValue" Member="Dealer" ThisKey="DealerID" OtherKey="DealerID" Type="Dealer" IsForeignKey="true" />
+      <Association Name="KPI_DealerKPIValue" Member="KPI" ThisKey="KPIID" OtherKey="KPIID" Type="KPI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetKPIValues" Method="GetKPIValues">
+    <Parameter Name="DealerId" Parameter="dealerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="KpiId" Parameter="kpiId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetKPIValuesResult">
+      <Column Name="Month" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AmtDealer" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AmtArea" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AmtTotal" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetKPIName" Method="GetKPIName">
+    <Parameter Name="KpiId" Parameter="kpiId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetKPINameResult">
+      <Column Name="Description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

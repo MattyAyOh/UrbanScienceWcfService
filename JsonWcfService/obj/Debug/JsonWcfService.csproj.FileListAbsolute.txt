@@ -2,4 +2,4 @@
 \\vmware-host\Shared Folders\Documents\Visual Studio 2012\Projects\JsonWcfService\JsonWcfService\bin\JsonWcfService.pdb
 \\vmware-host\Shared Folders\Documents\Visual Studio 2012\Projects\JsonWcfService\JsonWcfService\obj\Debug\JsonWcfService.dll
 \\vmware-host\Shared Folders\Documents\Visual Studio 2012\Projects\JsonWcfService\JsonWcfService\obj\Debug\JsonWcfService.pdb
-\\vmware-host\Shared Folders\Documents\Visual Studio 2012\Projects\JsonWcfService\JsonWcfService\obj\Debug\JsonWcfService.csprojResolveAssemblyReference.cache
+\\vmware-host\shared folders\documents\visual studio 2012\Projects\JsonWcfService\JsonWcfService\obj\Debug\JsonWcfService.csprojResolveAssemblyReference.cache
