@@ -26,6 +26,15 @@ namespace JsonWcfService
 
         List<GetKPINameResult> GetKPIName(int kpiID);
 
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "json/dealershipkpis/?dealer={dealerID}")]
+
+        List<GetDealershipKPIsResult> GetDealershipKPIs(int dealerID);
+
         //[OperationContract]
         //[WebInvoke(Method = "GET",
         //    ResponseFormat = WebMessageFormat.Json,

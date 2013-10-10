@@ -108,6 +108,13 @@ namespace JsonWcfService
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), kpiId);
 			return ((ISingleResult<GetKPINameResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetDealershipKPIs")]
+		public ISingleResult<GetDealershipKPIsResult> GetDealershipKPIs([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerId", DbType="Int")] System.Nullable<int> dealerId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId);
+			return ((ISingleResult<GetDealershipKPIsResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dealer")]
@@ -835,6 +842,32 @@ namespace JsonWcfService
 				if ((this._Name != value))
 				{
 					this._Name = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetDealershipKPIsResult
+	{
+		
+		private int _KPIID;
+		
+		public GetDealershipKPIsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KPIID", DbType="Int NOT NULL")]
+		public int KPIID
+		{
+			get
+			{
+				return this._KPIID;
+			}
+			set
+			{
+				if ((this._KPIID != value))
+				{
+					this._KPIID = value;
 				}
 			}
 		}

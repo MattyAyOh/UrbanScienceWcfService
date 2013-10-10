@@ -32,6 +32,18 @@ namespace JsonWcfService
             return results;
         }
 
+        public List<GetDealershipKPIsResult> GetDealershipKPIs(int dealerID)
+        {
+            List<GetDealershipKPIsResult> results;
+
+            using (WSUDataContext ws = new WSUDataContext())
+            {
+                results = ws.GetDealershipKPIs(dealerID).ToList();
+            }
+
+            return results;
+        }
+
     //    public double GetDealershipKPI(string dealerID, string kpiID, string year, string month)
     //    {
     //        var result = 0.0;

@@ -11,7 +11,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/JsonWcfService.dll">
-      <publishTime>10/09/2013 20:40:24</publishTime>
+      <publishTime>10/09/2013 21:40:05</publishTime>
     </File>
     <File Include="GetDealershipKPI.svc">
       <publishTime>09/24/2013 16:57:19</publishTime>
@@ -29,10 +29,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/18/2013 18:09:10</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/09/2013 20:40:25</publishTime>
+      <publishTime>10/09/2013 21:40:05</publishTime>
     </File>
     <File Include="WSU.dbml">
-      <publishTime>10/09/2013 20:39:49</publishTime>
+      <publishTime>10/09/2013 21:39:19</publishTime>
     </File>
   </ItemGroup>
 </Project>
