@@ -8,13 +8,88 @@ namespace JsonWcfService
 {
     public class Service : IService
     {
+        public List<ValidateUserResult> ValidateUser(string Username, string Password)
+        {
+            List<ValidateUserResult> results;
 
+            using (WSUDataContext ws = new WSUDataContext())
+            {
+                results = ws.ValidateUser(Username, Password).ToList();
+            }
+
+            return results;
+        }
+
+
+        public List<GetUserDealershipsResult> GetUserDealerships(int userID)
+        {
+            List<GetUserDealershipsResult> results;
+
+            using (WSUDataContext ws = new WSUDataContext())
+            {
+                results = ws.GetUserDealerships(userID).ToList();
+            }
+
+            return results;
+        }
+
+        public List<AddActionPlanResult> AddActionPlan(int dealerID)
+        {   //code to Create the Person goes here
+             //{"PersonObject":{"FirstName":"Shirley","LastName":"Horn","Grammys":4}}
+            List<AddActionPlanResult> results;
+            using (WSUDataContext ws = new WSUDataContext())
+            {
+                results = ws.AddActionPlan(dealerID).ToList();
+            }
+            return results;
+        }
+
+        public bool ModifyActionPlan(int apID, string comment, int reaction)
+        { 
+            using (WSUDataContext ws = new WSUDataContext())
+            {
+                ws.ModifyActionPlan(apID, comment, reaction);
+            }
+            return true;
+        }
+
+        public bool AddActionPlanKPI(int apID, int kpID)
+        {
+            using (WSUDataContext ws = new WSUDataContext())
+            {
+                ws.AddActionPlanKPI(apID, kpID);
+            }
+            return true;
+        }
+        
+        public bool ModifyActionPlanKPI(int apID, int kpID, string suggest, string action, string result, string comment, int reaction)
+        {
+            using (WSUDataContext ws = new WSUDataContext())
+            {
+                ws.ModifyActionPlanKPI(apID, kpID, suggest, action, result, comment, reaction);
+            }
+            return true;
+        }
+
+       
         public List<GetKPIValuesResult> GetAllKPIValuesPastYear(int dealerID, int kpiID)
         {
              List<GetKPIValuesResult> results;
 
             using( WSUDataContext ws = new WSUDataContext()) {
                 results = ws.GetKPIValues(dealerID, kpiID).ToList();
+            }
+
+            return results;
+        }
+
+        public List<GetMostRecentKPIValuesResult> GetMostRecentKPIValues(int dealerID, int kpiID)
+        {
+            List<GetMostRecentKPIValuesResult> results;
+
+            using (WSUDataContext ws = new WSUDataContext())
+            {
+                results = ws.GetMostRecentKPIValues(dealerID, kpiID).ToList();
             }
 
             return results;
@@ -39,6 +114,31 @@ namespace JsonWcfService
             using (WSUDataContext ws = new WSUDataContext())
             {
                 results = ws.GetDealershipKPIs(dealerID).ToList();
+            }
+
+            return results;
+        }
+
+        public List<GetActionPlansResult> GetActionPlans(int dealerID)
+        {
+            List<GetActionPlansResult> results;
+
+            using (WSUDataContext ws = new WSUDataContext())
+            {
+                results = ws.GetActionPlans(dealerID).ToList();
+            }
+
+            return results;
+        }
+
+
+        public List<GetActionPlanKPIsResult> GetActionPlanKPIs(int apID)
+        {
+            List<GetActionPlanKPIsResult> results;
+
+            using (WSUDataContext ws = new WSUDataContext())
+            {
+                results = ws.GetActionPlanKPIs(apID).ToList();
             }
 
             return results;

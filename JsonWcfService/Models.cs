@@ -6,6 +6,21 @@ using System.Web;
 
 namespace JsonWcfService
 {
+
+    [DataContract]
+    public class ActionPlan
+    {
+        [DataMember]
+        public int ActionPlanID { get; set; }
+        [DataMember]
+        public int DealerID { get; set; }
+        [DataMember]
+        public char Comments { get; set; }
+        [DataMember]
+        public int Reaction { get; set; }
+    }
+
+
     [DataContract]
     public class KPIValues
     {

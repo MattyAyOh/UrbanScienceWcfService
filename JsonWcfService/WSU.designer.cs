@@ -95,6 +95,22 @@ namespace JsonWcfService
 			}
 		}
 		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Profile> Profiles
+		{
+			get
+			{
+				return this.GetTable<Profile>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetKPIValues")]
 		public ISingleResult<GetKPIValuesResult> GetKPIValues([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerId", DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="KpiId", DbType="Int")] System.Nullable<int> kpiId)
 		{
@@ -114,6 +130,69 @@ namespace JsonWcfService
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId);
 			return ((ISingleResult<GetDealershipKPIsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetUserDealerships")]
+		public ISingleResult<GetUserDealershipsResult> GetUserDealerships([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserID", DbType="Int")] System.Nullable<int> userID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userID);
+			return ((ISingleResult<GetUserDealershipsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ValidateUser")]
+		public ISingleResult<ValidateUserResult> ValidateUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NChar(10)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NChar(10)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password);
+			return ((ISingleResult<ValidateUserResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddActionPlanKPI")]
+		public int AddActionPlanKPI([global::System.Data.Linq.Mapping.ParameterAttribute(Name="APID", DbType="Int")] System.Nullable<int> aPID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="KPID", DbType="Int")] System.Nullable<int> kPID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aPID, kPID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ModifyActionPlan")]
+		public int ModifyActionPlan([global::System.Data.Linq.Mapping.ParameterAttribute(Name="APID", DbType="Int")] System.Nullable<int> aPID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comment", DbType="NChar(512)")] string comment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Reaction", DbType="Int")] System.Nullable<int> reaction)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aPID, comment, reaction);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ModifyActionPlanKPI")]
+		public int ModifyActionPlanKPI([global::System.Data.Linq.Mapping.ParameterAttribute(Name="APID", DbType="Int")] System.Nullable<int> aPID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="KPID", DbType="Int")] System.Nullable<int> kPID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Suggest", DbType="NChar(512)")] string suggest, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Action", DbType="NChar(512)")] string action, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Result", DbType="NChar(512)")] string result, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comment", DbType="NChar(512)")] string comment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Reaction", DbType="Int")] System.Nullable<int> reaction)
+		{
+			IExecuteResult result1 = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aPID, kPID, suggest, action, result, comment, reaction);
+			return ((int)(result1.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetMostRecentKPIValues")]
+		public ISingleResult<GetMostRecentKPIValuesResult> GetMostRecentKPIValues([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerId", DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="KpiId", DbType="Int")] System.Nullable<int> kpiId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId, kpiId);
+			return ((ISingleResult<GetMostRecentKPIValuesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetActionPlanKPIs")]
+		public ISingleResult<GetActionPlanKPIsResult> GetActionPlanKPIs([global::System.Data.Linq.Mapping.ParameterAttribute(Name="APID", DbType="Int")] System.Nullable<int> aPID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aPID);
+			return ((ISingleResult<GetActionPlanKPIsResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetActionPlans")]
+		public ISingleResult<GetActionPlansResult> GetActionPlans([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerID", DbType="Int")] System.Nullable<int> dealerID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerID);
+			return ((ISingleResult<GetActionPlansResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AddActionPlan")]
+		public ISingleResult<AddActionPlanResult> AddActionPlan([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerID", DbType="Int")] System.Nullable<int> dealerID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerID);
+			return ((ISingleResult<AddActionPlanResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -705,6 +784,114 @@ namespace JsonWcfService
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
+	public partial class User
+	{
+		
+		private System.Nullable<int> _UserID;
+		
+		private System.Nullable<int> _DealerID;
+		
+		public User()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int")]
+		public System.Nullable<int> UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this._UserID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DealerID", DbType="Int")]
+		public System.Nullable<int> DealerID
+		{
+			get
+			{
+				return this._DealerID;
+			}
+			set
+			{
+				if ((this._DealerID != value))
+				{
+					this._DealerID = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Profiles")]
+	public partial class Profile
+	{
+		
+		private string _Username;
+		
+		private string _Password;
+		
+		private System.Nullable<int> _UserID;
+		
+		public Profile()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="NChar(10)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this._Username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NChar(10)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this._Password = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int")]
+		public System.Nullable<int> UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this._UserID = value;
+				}
+			}
+		}
+	}
+	
 	public partial class GetKPIValuesResult
 	{
 		
@@ -868,6 +1055,234 @@ namespace JsonWcfService
 				if ((this._KPIID != value))
 				{
 					this._KPIID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetUserDealershipsResult
+	{
+		
+		private System.Nullable<int> _DealerID;
+		
+		public GetUserDealershipsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DealerID", DbType="Int")]
+		public System.Nullable<int> DealerID
+		{
+			get
+			{
+				return this._DealerID;
+			}
+			set
+			{
+				if ((this._DealerID != value))
+				{
+					this._DealerID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ValidateUserResult
+	{
+		
+		private System.Nullable<int> _UserID;
+		
+		public ValidateUserResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int")]
+		public System.Nullable<int> UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this._UserID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetMostRecentKPIValuesResult
+	{
+		
+		private int _Month;
+		
+		private int _Year;
+		
+		private System.Nullable<double> _AmtDealer;
+		
+		private System.Nullable<double> _AmtArea;
+		
+		private System.Nullable<double> _AmtTotal;
+		
+		public GetMostRecentKPIValuesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Month", DbType="Int NOT NULL")]
+		public int Month
+		{
+			get
+			{
+				return this._Month;
+			}
+			set
+			{
+				if ((this._Month != value))
+				{
+					this._Month = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="Int NOT NULL")]
+		public int Year
+		{
+			get
+			{
+				return this._Year;
+			}
+			set
+			{
+				if ((this._Year != value))
+				{
+					this._Year = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmtDealer", DbType="Float")]
+		public System.Nullable<double> AmtDealer
+		{
+			get
+			{
+				return this._AmtDealer;
+			}
+			set
+			{
+				if ((this._AmtDealer != value))
+				{
+					this._AmtDealer = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmtArea", DbType="Float")]
+		public System.Nullable<double> AmtArea
+		{
+			get
+			{
+				return this._AmtArea;
+			}
+			set
+			{
+				if ((this._AmtArea != value))
+				{
+					this._AmtArea = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmtTotal", DbType="Float")]
+		public System.Nullable<double> AmtTotal
+		{
+			get
+			{
+				return this._AmtTotal;
+			}
+			set
+			{
+				if ((this._AmtTotal != value))
+				{
+					this._AmtTotal = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetActionPlanKPIsResult
+	{
+		
+		private System.Nullable<int> _KPIID;
+		
+		public GetActionPlanKPIsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KPIID", DbType="Int")]
+		public System.Nullable<int> KPIID
+		{
+			get
+			{
+				return this._KPIID;
+			}
+			set
+			{
+				if ((this._KPIID != value))
+				{
+					this._KPIID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetActionPlansResult
+	{
+		
+		private int _UAPID;
+		
+		public GetActionPlansResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UAPID", DbType="Int NOT NULL")]
+		public int UAPID
+		{
+			get
+			{
+				return this._UAPID;
+			}
+			set
+			{
+				if ((this._UAPID != value))
+				{
+					this._UAPID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class AddActionPlanResult
+	{
+		
+		private int _UAPID;
+		
+		public AddActionPlanResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UAPID", DbType="Int NOT NULL")]
+		public int UAPID
+		{
+			get
+			{
+				return this._UAPID;
+			}
+			set
+			{
+				if ((this._UAPID != value))
+				{
+					this._UAPID = value;
 				}
 			}
 		}

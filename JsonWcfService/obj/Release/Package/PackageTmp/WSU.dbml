@@ -30,6 +30,19 @@
       <Association Name="KPI_DealerKPIValue" Member="KPI" ThisKey="KPIID" OtherKey="KPIID" Type="KPI" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DealerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Profiles" Member="Profiles">
+    <Type Name="Profile">
+      <Column Name="Username" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.GetKPIValues" Method="GetKPIValues">
     <Parameter Name="DealerId" Parameter="dealerId" Type="System.Int32" DbType="Int" />
     <Parameter Name="KpiId" Parameter="kpiId" Type="System.Int32" DbType="Int" />
@@ -52,6 +65,69 @@
     <Parameter Name="DealerId" Parameter="dealerId" Type="System.Int32" DbType="Int" />
     <ElementType Name="GetDealershipKPIsResult">
       <Column Name="KPIID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetUserDealerships" Method="GetUserDealerships">
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetUserDealershipsResult">
+      <Column Name="DealerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ValidateUser" Method="ValidateUser">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NChar(10)" />
+    <ElementType Name="ValidateUserResult">
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AddActionPlanKPI" Method="AddActionPlanKPI">
+    <Parameter Name="APID" Parameter="aPID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="KPID" Parameter="kPID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ModifyActionPlan" Method="ModifyActionPlan">
+    <Parameter Name="APID" Parameter="aPID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Comment" Parameter="comment" Type="System.String" DbType="NChar(512)" />
+    <Parameter Name="Reaction" Parameter="reaction" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ModifyActionPlanKPI" Method="ModifyActionPlanKPI">
+    <Parameter Name="APID" Parameter="aPID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="KPID" Parameter="kPID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Suggest" Parameter="suggest" Type="System.String" DbType="NChar(512)" />
+    <Parameter Name="Action" Parameter="action" Type="System.String" DbType="NChar(512)" />
+    <Parameter Name="Result" Parameter="result" Type="System.String" DbType="NChar(512)" />
+    <Parameter Name="Comment" Parameter="comment" Type="System.String" DbType="NChar(512)" />
+    <Parameter Name="Reaction" Parameter="reaction" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetMostRecentKPIValues" Method="GetMostRecentKPIValues">
+    <Parameter Name="DealerId" Parameter="dealerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="KpiId" Parameter="kpiId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetMostRecentKPIValuesResult">
+      <Column Name="Month" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AmtDealer" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AmtArea" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AmtTotal" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetActionPlanKPIs" Method="GetActionPlanKPIs">
+    <Parameter Name="APID" Parameter="aPID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetActionPlanKPIsResult">
+      <Column Name="KPIID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetActionPlans" Method="GetActionPlans">
+    <Parameter Name="DealerID" Parameter="dealerID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetActionPlansResult">
+      <Column Name="UAPID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AddActionPlan" Method="AddActionPlan">
+    <Parameter Name="DealerID" Parameter="dealerID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="AddActionPlanResult">
+      <Column Name="UAPID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>
